@@ -4,6 +4,8 @@ import AdminLayout from '../layouts/admin/AdminLayout'
 import AdminRoute from './AdminRoute'
 import UserLayout from '../layouts/user/UserLayout'
 import UserRoute from './UserRoute'
+import TutorLayout from '../layouts/tutor/TutorLayout'
+import TutorRoute from './TutorRoute'
 
 
 const AppRoute = () => {
@@ -15,8 +17,14 @@ const AppRoute = () => {
             <Route path='*' element={<AdminRoute />} />
         </Route>
 
+        {/* Tutor route */}
+        <Route path='/tutor' element={<TutorLayout />}>
+            <Route path='*' element={<TutorRoute />} />
+        </Route> 
+
         {/* User routes */}
         <Route path='/' element={<UserLayout />}>
+            
             <Route path='*' element={<UserRoute />} />
         </Route>
       </Routes>
