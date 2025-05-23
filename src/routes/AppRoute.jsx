@@ -10,6 +10,8 @@ import Otp from '../pages/common/Otp'
 import Login from '../pages/common/Login'
 import TrackLastRoute from '../components/commen/TrackLastRoute'
 import GustOnlyRoute from '../components/commen/GustOnlyRoute'
+import TutorLandingPage from '../pages/Tutor/TutorLandingPage'
+import UserLandingPage from '../pages/user/UserLandingPage'
 
 
 const AppRoute = () => {
@@ -24,21 +26,25 @@ const AppRoute = () => {
 
         {/* Tutor route */}
         <Route path='/tutor' element={<TutorLayout />}>
+            <Route index element={<TutorLandingPage />} />
             <Route path='*' element={<TutorRoute />} />
         </Route> 
 
         {/* User routes */}
         <Route path='/' element={<UserLayout />}>
+            <Route index element={<UserLandingPage />} />
             <Route path='*' element={<UserRoute />} />
         </Route>
 
         {/* Common routes */}
-        <Route path='/login' element={
+        {/* <Route path='/login' element={
           <GustOnlyRoute>
             <Login />
           </GustOnlyRoute>
+        } /> */}
+        <Route path='/otp' element={ 
+          <Otp />
         } />
-        <Route path='/otp' element={<Otp />} />
       </Routes>
     </Router>
   )

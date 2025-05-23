@@ -22,6 +22,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { setOtpEmail } from "../../feature/auth/registerOtpSlice";
 import { useNavigate } from "react-router-dom";
+import GoogleButton from "../../components/commen/GoogleButton";
 
 
 const registerSwal = withReactContent(Swal)
@@ -67,6 +68,15 @@ const Registration = ({ role }) => {
         formData.conform_password == true
     );
   }, [formData]);
+
+  const handleAlreadyhaveAccount = () => {
+    if(role == 'student'){
+      navigate('/login')
+    }
+    else if(role == 'tutor'){
+      navigate('/tutor/login')
+    }
+  }
 
   // Username handler
   const onUsernameChange = (e) => {
@@ -522,20 +532,23 @@ const Registration = ({ role }) => {
 
               {/* Google signin button */}
               <div className="pt-[30px] border-t-[1px] border-gray-400 dark:border-gray-500">
-                <div className="flex border-2 cursor-pointer border-gray-700 rounded-md py-1.5 justify-center space-x-3 items-center">
-                  <span>
+                <div className="flex justify-center items-center">
+                  {/* <span>
                     <img className="w-[18px]" src={google_icon} alt="" />
                   </span>
                   <p className="text-sm text-black dark:text-white-900">
                     SignIn with Google
-                  </p>
+                  </p> */}
+                  <GoogleButton role={role} />
                 </div>
               </div>
             </form>
             <div className="w-full text-center mt-[40px]">
               <p className="text-sm font-[500] text-black-900 dark:text-white-900">
                 I already have account ?
-                <span className="text-sm text-light-blue-800 font-[500] cursor-pointer">
+                <span className="text-sm text-light-blue-800 font-[500] cursor-pointer"
+                onClick={handleAlreadyhaveAccount}
+                >
                   {" "}
                   Login
                 </span>

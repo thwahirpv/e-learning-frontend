@@ -8,7 +8,7 @@ const TrackLastRoute = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        const gustOnlyRoutes = ['/login', '/register', '/tutor/register']
+        const gustOnlyRoutes = ['/login', '/admin/login', '/tutor/login', '/register', '/tutor/register', '/otp']
         if(!gustOnlyRoutes.includes(location.pathname)){
             dispatch(setLastVisitRoute(location.pathname))
         }

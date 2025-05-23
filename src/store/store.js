@@ -5,13 +5,14 @@ import registerReducer from '../feature/auth/registerSlice'
 import registerOtpRedicer from '../feature/auth/registerOtpSlice'
 import loginReducer from '../feature/auth/loginSlice'
 import userDetailsReducer from '../feature/auth/userDetailsSlice'
+import googleAuthReducer from '../feature/auth/googleAuthSlice'
 
 const rootReducer = combineReducers({
     register: registerReducer,
     registerOtp: registerOtpRedicer,
     login: loginReducer,
-    userDetails: userDetailsReducer
-
+    userDetails: userDetailsReducer,
+    googleAuth: googleAuthReducer,
 })
 
 const persistConfig = {

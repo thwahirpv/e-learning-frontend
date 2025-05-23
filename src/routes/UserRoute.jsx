@@ -5,6 +5,7 @@ import NotFound from '../pages/common/NotFound'
 import UserRegistration from '../pages/user/UserRegistration'
 import UserProtectedRoute from '../components/user/UserProtectedRoute'
 import GustOnlyRoute from '../components/commen/GustOnlyRoute'
+import UserLogin from '../pages/user/UserLogin'
 
 const UserRoute = () => {
   return (
@@ -12,6 +13,11 @@ const UserRoute = () => {
       <Route path='/register' element={
         <GustOnlyRoute>
           <UserRegistration />
+        </GustOnlyRoute>
+      } />
+      <Route path='/login' element={
+        <GustOnlyRoute>
+          <UserLogin />
         </GustOnlyRoute>
       } />
       <Route path='/dashboard' element={

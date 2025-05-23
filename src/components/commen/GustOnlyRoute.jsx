@@ -5,17 +5,18 @@ import { Navigate } from 'react-router-dom'
 
 const GustOnlyRoute = ({ children }) => {
     const { isAuthenticated, role, lastVisitRoute } = useSelector((state) => state.userDetails)
+    console.log(isAuthenticated, role, 'from gest only')
   if(!isAuthenticated){
     return children
   }
   else if(role == STUDENT) {
-    return <Navigate to={lastVisitRoute || '/dashboard'} />
+    return <Navigate to={'/dashboard'} />
   }
   else if(role == TUTOR) {
-    return <Navigate to={lastVisitRoute || '/tutor/dashboard'} />
+    return <Navigate to={'/tutor/dashboard'} />
   }
   else if(role == ADMIN) {
-    return <Navigate to={lastVisitRoute || '/admin/dashboard'} />
+    return <Navigate to={'/admin/dashboard'} />
   }
 }
 
